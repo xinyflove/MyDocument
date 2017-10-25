@@ -21,6 +21,7 @@ input输入框：
 | 匹配不能纯数字、字母    | ```pattern="^(?!\d+$\|[a-zA-Z]+$)[^\u4e00-\u9fa5]*$"```      |
 | 匹配不能是小数          | ```pattern="^[0-9]+$"```      |
 | 匹配不能用纯数字或中文  | ```pattern="^(?!\d+$)[^\u4e00-\u9fa5]*$"```      |
+| 匹配整数或小数二位      | ```pattern="^[0-9]+(.[0-9]{1,2})?$"```      |
 | 动态验证数据链接        | ```data-validate-remote-url="<{url action=topshop_ctl_passport@isExists type=account}>"```      |
 | 动态验证数据name        | ```data-validate-remote-name="login_account"```      |
 | 动态验证数据提示        | ```data-validate-remote-message="此帐号已被注册过，请换一个重试"```      |
