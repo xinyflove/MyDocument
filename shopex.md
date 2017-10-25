@@ -18,7 +18,7 @@ input输入框：
 | 验证输入字符最小长度    | ```data-validate-length-min="6"```      |
 | 验证输入字符最大长度    | ```data-validate-length-max="16"```      |
 | 验证错误提示信息        | ```data-validate-regexp-message="不能纯数字、字母"```     |
-| 匹配不能纯数字、字母    | ```pattern="^(?!\d+$|[a-zA-Z]+$)[^\u4e00-\u9fa5]*$"```      |
+| 匹配不能纯数字、字母    | ```pattern="^(?!\d+$\|[a-zA-Z]+$)[^\u4e00-\u9fa5]*$"```      |
 | 匹配不能是小数          | ```pattern="^[0-9]+$"```      |
 | 匹配不能用纯数字或中文  | ```pattern="^(?!\d+$)[^\u4e00-\u9fa5]*$"```      |
 | 动态验证数据链接        | ```data-validate-remote-url="<{url action=topshop_ctl_passport@isExists type=account}>"```      |
