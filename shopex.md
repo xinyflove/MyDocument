@@ -43,9 +43,33 @@
 | NOT LIKE        | ```$tmpfilter['user_name\|nohas']='小明'```              | user_name NOT LIKE '%小明%'    |
 | >               | ```$tmpfilter['user_age\|than']='18'```                 | user_age > '18'    |
 | <               | ```$tmpfilter['user_age\|lthan']='18'```                | user_age < '18'    |
-| =               | ```$tmpfilter['user_age\|nequal']='18'```或```$tmpfilter['user_age\|tequal']='18'``` 或```$tmpfilter['user_age']='18'```  | user_age = '18'    |
+| =               | ```$tmpfilter['user_age\|nequal']='18'```或<br>```$tmpfilter['user_age\|tequal']='18'``` 或<br>```$tmpfilter['user_age']='18'```  | user_age = '18'    |
 | <>              | ```$tmpfilter['user_age\|noequal']='18'```              | user_age <> '18'   |
 | >=              | ```$tmpfilter['user_age\|bthan']='18'```                | user_age >= '18'   |
 | <=              | ```$tmpfilter['user_age\|sthan']='18'```                | user_age <= '18'   |
 | BETWEEN         | ```$tmpfilter['user_age\|between']=array(18,20)```       | user_age BETWEEN 18 AND 20 (未验证)  |
 
+## 接口
+
+### 接口参数定义：
+例如:
+```
+public function getParams()
+{
+   $return['params'] = array(
+      'shop_id' => ['type'=>'int', 'valid'=>'required', 'default'=>'', 'example'=>'1', 'desc'=>'店铺ID'],
+   );
+   return $return;
+}
+```
+
+| 参数的参数定义 | 说明          | 可选值 |
+| ------------- |:-------------|:-------------|
+| type          | 参数类型(单个)     | int(整数)\| <br> string(字符串)\| <br> field_list(字段列表)\| <br> bool(布尔类型)\| <br> jsonArray(JSON数组)    |
+| valid         | 验证条件(多个可用\|连接)     | required(必填)\| <br> integer(整数类型或者用int)\| <br> max:n(最大值，例如：max:20最大值20)\| <br> min:n(最小值，例如：min:1最小值1)\| <br> 空字符串(没有验证)\| <br> sometimes(未知含义)\| <br> boolean(布尔类型)\| <br> in:\*\*(限定值，例如：in:agree,refuse,non-reviewed,pending 取值范围在agree、refuse、non-reviewed、pending)\| <br> required_if:\*\*(未知含义 例如：required_if:status,refuse) \| <br>   |
+| default       | 默认值              |           |
+| example       | 示例值              |           |
+| desc          | 描述(或者用description)          |           |
+
+### 接口描述：
+public $apiDescription = "接口描述";
