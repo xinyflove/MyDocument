@@ -73,3 +73,11 @@ public function getParams()
 
 ### 接口描述：
 public $apiDescription = "接口描述";
+
+## 函数
+
+### 全局函数：
+
+| 函数 | 说明          |
+| ------------- |:-------------|
+| request::method() == 'GET'         | 获取请求方式(GET或POST)          |
