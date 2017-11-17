@@ -37,6 +37,7 @@
 | 操作符        | 代码          | 代表SQL语句   |
 | ------------- |:-------------|:-------------|
 | IN              | ```$tmpfilter['user_id\|in']=array(1,2,3,4,.....)```     | user_id IN (1,2,3,4,...)      |
+| NOT IN          | ```$tmpfilter['user_id\|notin']=array(1,2,3,4,.....)```  | user_id NOT IN (1,2,3,4,...)  |
 | LIKE            | ```$tmpfilter['user_name\|has']='小明'```                | user_name LIKE '%小明%'        |
 | LIKE            | ```$tmpfilter['user_name\|head']='小明'```               | user_name LIKE '小明%'         |
 | LIKE            | ```$tmpfilter['user_name\|foot']='小明'```               | user_name LIKE '%小明'         |
