@@ -50,6 +50,29 @@
 | <=              | ```$tmpfilter['user_age\|sthan']='18'```                | user_age <= '18'   |
 | BETWEEN         | ```$tmpfilter['user_age\|between']=array(18,20)```       | user_age BETWEEN 18 AND 20 (未验证)  |
 
+### 查询：
+
+```
+$qb = app::get('base')->database()->createQueryBuilder();
+$res = $qb->select($row)
+		  ->from('sysitem_item', 'SI')
+		  ->leftJoin('SI', 'sysitem_item_count', 'SIC', 'SI.item_id=SIC.item_id')
+		  ->leftJoin('SIC', 'sysitem_item_status', 'SIS', 'SIC.item_id=SIS.item_id')
+		  ->leftJoin('SIS', 'sysitem_item_store', 'SISS', 'SIS.item_id=SISS.item_id')
+		  ->where($where)
+		  ->setFirstResult( $offset )
+		  ->setMaxResults($limit)
+		  ->orderBy($orderBy['by'], $orderBy['sort'])->execute()->fetchAll();
+```
+
+### 执行sql：
+
+```
+$db = app::get('systrade')->database();//'systrade'当前app名称
+$result=$db->executeQuery($sql)->fetchAll();//获取多行数据
+$result=$db->executeQuery($sql)->fetch();//获取一行数据
+```
+
 ## 接口
 
 ### 接口参数定义：
