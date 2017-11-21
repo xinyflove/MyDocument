@@ -1,5 +1,16 @@
 # 商派系统(shopex)常用文档
 
+## 创建一个对象
+
+```
+kernel::single($class_name,$arg=null)
+//例如:
+kernel::single('sysbankmember_bank')
+//生成的是目录为sysbankmember/lib/bank.php 里的class为sysbankmember_ctl_bank的对象
+kernel::single('sysbankmember_data_bank')
+//生成的是目录为sysbankmember/lib/data/bank.php 里的class为sysbankmember_data_bank的对象
+```
+
 ## 前台前端页面
 
 ### input输入框：
@@ -104,6 +115,12 @@ $db = app::get('systrade')->database();//'systrade'当前app名称
 $result=$db->executeUpdate($sql)
 ```
 
+### 获取app的model
+
+```
+app::get('sysactivityvote')->model('active');//获取app为sysactivityvote的表active的model
+```
+
 ## 接口
 
 ### 接口参数定义：
@@ -129,6 +146,14 @@ public function getParams()
 
 ### 接口描述：
 public $apiDescription = "接口描述";
+
+### 调用接口
+```
+app::get('topshop')->rpcCall('sysactivityvote.active.get', $apiData);
+//sysactivityvote.active.get定义的接口
+//$apiData传入的参数
+//第三个参数为空或buyer或seller
+```
 
 ## 函数
 
