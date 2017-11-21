@@ -71,6 +71,7 @@ public function getParams()
 | default       | 默认值              |           |
 | example       | 示例值              |           |
 | desc          | 描述(或者用description)          |           |
+| msg          | 参数错误提示信息         |           |
 
 ### 接口描述：
 public $apiDescription = "接口描述";
