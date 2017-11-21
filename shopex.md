@@ -65,12 +65,19 @@ $res = $qb->select($row)
 		  ->orderBy($orderBy['by'], $orderBy['sort'])->execute()->fetchAll();
 ```
 
-### 执行sql：
+### 执行查询sql：
 
 ```
 $db = app::get('systrade')->database();//'systrade'当前app名称
 $result=$db->executeQuery($sql)->fetchAll();//获取多行数据
 $result=$db->executeQuery($sql)->fetch();//获取一行数据
+```
+
+### 执行更新sql：
+
+```
+$db = app::get('systrade')->database();//'systrade'当前app名称
+$result=$db->executeUpdate($sql)
 ```
 
 ## 接口
