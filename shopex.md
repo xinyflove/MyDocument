@@ -121,40 +121,6 @@ $result=$db->executeUpdate($sql)
 app::get('sysactivityvote')->model('active');//获取app为sysactivityvote的表active的model
 ```
 
-## 接口
-
-### 接口参数定义：
-例如:
-```
-public function getParams()
-{
-   $return['params'] = array(
-      'shop_id' => ['type'=>'int', 'valid'=>'required', 'default'=>'', 'example'=>'1', 'desc'=>'店铺ID'],
-   );
-   return $return;
-}
-```
-
-| 参数的参数定义 | 说明          | 可选值 |
-| ------------- |:-------------|:-------------|
-| type          | 参数类型(单个)     | int(整数)\| <br> string(字符串)\| <br> field_list(字段列表)\| <br> bool(布尔类型)\| <br> jsonArray(JSON数组)    |
-| valid         | 验证条件(多个可用\|连接)     | required(必填)\| <br> integer(整数类型或者用int)\| <br> max:n(最大值，例如：max:20最大值20)\| <br> min:n(最小值，例如：min:1最小值1)\| <br> 空字符串(没有验证)\| <br> sometimes(未知含义)\| <br> boolean(布尔类型)\| <br> in:\*\*(限定值，例如：in:agree,refuse,non-reviewed,pending 取值范围在agree、refuse、non-reviewed、pending)\| <br> required_if:\*\*(未知含义 例如：required_if:status,refuse) \| <br> numeric(未知含义)\| <br>  |
-| default       | 默认值              |           |
-| example       | 示例值              |           |
-| desc          | 描述(或者用description)          |           |
-| msg          | 参数错误提示信息         |           |
-
-### 接口描述：
-public $apiDescription = "接口描述";
-
-### 调用接口
-```
-app::get('topshop')->rpcCall('sysactivityvote.active.get', $apiData);
-//sysactivityvote.active.get定义的接口
-//$apiData传入的参数
-//第三个参数为空或buyer或seller
-```
-
 ## 函数
 
 ### 全局函数：
