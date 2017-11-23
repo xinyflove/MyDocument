@@ -30,4 +30,4 @@
 </app>
 ``` 
 
-注意:<type>要为service.
+注意:type标签内容为service.
