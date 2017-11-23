@@ -30,4 +30,7 @@
 </app>
 ``` 
 
-注意:type标签内容为service.
+注意:如果涉及到数据库表的使用type标签内容为service,并且要在 app/ 目录下创建 app/dbschema/ 目录. 
+
+   然后在 custom/ 目录下创建 custom/testapp/ 目录,把 app/testapp/app.xml 文件,复制到 custom/testapp/app.xml 文件.
+
