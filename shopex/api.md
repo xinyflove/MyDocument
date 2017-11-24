@@ -4,16 +4,26 @@
 
 1. 文件统一放在如下位置：
 
+原始
 ```
 app/{$app_name}/api/
+```
+二开
+```
+custom/{$app_name}/api/
 ```
 
 ## API注册 #
 
 1. 注册文件
 
+原始
 ```
 config/apis.php
+```
+二开
+```
+config/production/apis.php
 ```
 
 2. 注册格式
@@ -43,13 +53,8 @@ dev应用提供了一个命令：cmd dev:rpc depends_info命令可以获取当�
 ```
 <?php
 /**
- * ShopEx licence
  * - syscontent.content.get.info
  * - 用于获取文章的详情
- * @copyright Copyright (c) 2005-2016 ShopEx Technologies Inc. (http://www.shopex.cn)
- * @license   http://ecos.shopex.cn/ ShopEx License
- * @link      http://www.shopex.cn/
- * @author    shopex 2016-05-17
  */
 class syscontent_api_getContentInfo {
 
@@ -113,13 +118,8 @@ class syscontent_api_getContentInfo {
 
 ```
 /**
- * ShopEx licence
  * - syscontent.content.get.info
  * - 用于获取文章的详情
- * @copyright Copyright (c) 2005-2016 ShopEx Technologies Inc. (http://www.shopex.cn)
- * @license   http://ecos.shopex.cn/ ShopEx License
- * @link      http://www.shopex.cn/
- * @author    shopex 2016-05-17
  */
  ```
  
@@ -138,7 +138,7 @@ public $apiDescription = '获取文章详情';
 ```
 function getParams()内定义的是入参需要检验的字段，共5个，
 
-[type=>'字段类型','valid'=>'验证规则','title'=>'字段名','example'=>'示例值','desc'=>'字段的详细描述']
+[type=>'字段类型','valid'=>'验证规则','title'=>'字段名','example'=>'示例值','desc'=>'字段的详细描述','msg'=>'参数错误提示信息' ]
 
 `valid`字段的验证规则参考文件config/validation.php
 ```
@@ -227,11 +227,30 @@ public function registerList($params)
 ## API查询 #
 
 1. 方便开发本地就可以看api的定义，出参，入参
-2. 链接： http://www.example.com/utils/apiCheck.html, 如http://localhost/bbc/public/index.php/utils/apiCheck.html
+2. 链接： http://域名/dev
 
+## 调用接口 #
+```
+//程序内部调用
+app::get('topshop')->rpcCall('sysactivityvote.active.get', $apiData);
+//sysactivityvote.active.get定义的接口
+//$apiData传入的参数
+//第三个参数为空或buyer或seller
+```
+```
+//外部调用
+//链接:
+http://bbc.lo/index.php/api
+//参数:
+format=json //系统参数 返回格式
+v=v1 //系统参数 版本
+active_id=3 //定义参数 活动id
+method=sysactivityvote.active.get×tamp=1511488868 //默认参数 接口名称×tamp=时间戳
+sign_type=MD5 //默认参数 加密方式
+sign=9DE3C6584A413A7C06A0FE9C0F823402 //默认参数 签名
+```
 
-
-### 接口参数定义：
+## 整理常用的参数： #
 例如:
 ```
 public function getParams()
@@ -252,13 +271,3 @@ public function getParams()
 | desc          | 描述(或者用description)          |           |
 | msg          | 参数错误提示信息         |           |
 
-### 接口描述：
-public $apiDescription = "接口描述";
-
-### 调用接口
-```
-app::get('topshop')->rpcCall('sysactivityvote.active.get', $apiData);
-//sysactivityvote.active.get定义的接口
-//$apiData传入的参数
-//第三个参数为空或buyer或seller
-```
