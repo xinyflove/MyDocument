@@ -34,3 +34,12 @@
 
 然后在 custom/ 目录下创建 custom/testapp/ 目录,把 app/testapp/app.xml 文件,复制到 custom/testapp/app.xml 文件.
 
+## app目录说明 #
+|路径|说明|
+|:--|:--|
+|app/notebook/model|模型目录|
+|app/notebook/view|视图目录|
+|app/notebook/controller|控制器目录|
+|app/notebook/dbschema|数据库表结构定义|
+|app/notebook/lang|语言包文件夹|
+|app/notebook/lib|php类库文件|
