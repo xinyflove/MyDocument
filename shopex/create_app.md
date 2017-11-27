@@ -10,7 +10,7 @@
 
 ## 创建新的app #
 
-以app名称为testapp为例,在 app/ 目录下创建 app/testapp/ 目录,然后创建 app/testapp/app.xml 文件,文件内容为: 
+以app名称为notebook为例,在 app/ 目录下创建 app/notebook/ 目录,然后创建 app/notebook/app.xml 文件,文件内容为: 
 
 ```
 <app>
@@ -32,7 +32,7 @@
 
 注意:如果涉及到数据库表的使用type标签内容一定要为service,并且要在 app/ 目录下创建 app/dbschema/ 目录. 
 
-然后在 custom/ 目录下创建 custom/testapp/ 目录,把 app/testapp/app.xml 文件,复制到 custom/testapp/app.xml 文件.
+然后在 custom/ 目录下创建 custom/notebook/ 目录,把 app/notebook/app.xml 文件,复制到 custom/notebook/app.xml 文件.
 
 ## app目录说明 #
 |路径|说明|
