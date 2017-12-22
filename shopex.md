@@ -88,6 +88,8 @@ $res = $builder->select($row)
 
 ```
 $trend = app::get('statistic')->model('trend');
+$db = app::get('statistic')->database();
+$queryBuider = $db->createQueryBuilder();
 $builder = $queryBuider->select('sum(pv_count) as pv_count','sum(visitor_count) as visitor_count')
 	->from($trend->table_name(true))
 	->where('timesig >= :start_time')->andWhere('timesig <= :end_time')->andWhere('shop_id = :shop_id')
@@ -102,6 +104,7 @@ $data = $builder->execute()->fetch();//或者 fetchAll()
 ### 生成器更新
 
 ```
+$builder = app::get('base')->database()->createQueryBuilder();
 $res = $builder->set('rate_count', 'rate_count + 1')
 ->set('field', $value)
 ->where($where)
