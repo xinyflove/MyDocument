@@ -67,5 +67,5 @@ use_buildin_filter: 是否使用高级筛选 图中【6区】
 use_buildin_refresh: 是否显示刷新操作(列表配置项旁)
 use_buildin_setcol: 是否显示列表配置项
 use_buildin_selectrow: 是否显示每条记录前的复选按钮
-allow_detail_popup: 是否显示查看列中的弹出查看图标（图 【区】第二个图标）(暂未看出效果)
+allow_detail_popup: 是否显示查看列中的弹出查看图标（图 【4区】第二个图标）(暂未看出效果)
 ```
