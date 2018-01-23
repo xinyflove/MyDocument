@@ -248,8 +248,9 @@ v=v1 //系统参数 版本
 active_id=3 //定义参数 活动id
 method=sysactivityvote.active.get×tamp=1511488868 //默认参数 接口名称×tamp=时间戳
 sign_type=MD5 //默认参数 加密方式
-sign=9DE3C6584A413A7C06A0FE9C0F823402 //默认参数 签名 [点击查看签名算法](/shopex/sign.md "签名算法")
+sign=9DE3C6584A413A7C06A0FE9C0F823402 //默认参数 签名
 ```
+[点击查看签名算法](/shopex/sign.md "签名算法")
 
 ## 整理常用的参数定义： #
 例如:
