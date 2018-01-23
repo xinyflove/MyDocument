@@ -4,11 +4,11 @@
 
 1. 文件统一放在如下位置：
 
-原始
+原始文件
 ```
 app/{$app_name}/api/
 ```
-二开
+二开文件
 ```
 custom/{$app_name}/api/
 ```
@@ -17,11 +17,11 @@ custom/{$app_name}/api/
 
 1. 注册文件
 
-原始
+原始文件
 ```
 config/apis.php
 ```
-二开
+二开文件
 ```
 config/production/apis.php
 ```
@@ -31,11 +31,12 @@ config/production/apis.php
 ```
 'api的method' => ['uses' => '调用哪个类@哪个方法', 'version'=>['支持的版本号']],
 ```
+例子:
 ```
 'item.search' => ['uses' => 'sysitem_api_item_search@getList', 'version'=>['v1']],
 ```
 
-3. API请求权限注册 API请求权限是注册给app的，比如topc应用可以请求systrade应用提供的api，需要注册如下信息：
+3. API请求权限注册 API请求权限是注册给app的，比如topc应用可以请求systrade应用提供的api，需要注册如下信息：(tip:此项未实践)
 
 ```
 //表示topc可以调用systrade的api，并且每60秒可以调用1000次
@@ -247,10 +248,10 @@ v=v1 //系统参数 版本
 active_id=3 //定义参数 活动id
 method=sysactivityvote.active.get×tamp=1511488868 //默认参数 接口名称×tamp=时间戳
 sign_type=MD5 //默认参数 加密方式
-sign=9DE3C6584A413A7C06A0FE9C0F823402 //默认参数 签名
+sign=9DE3C6584A413A7C06A0FE9C0F823402 //默认参数 签名 [点击查看签名算法](/shopex/sign.md "签名算法")
 ```
 
-## 整理常用的参数： #
+## 整理常用的参数定义： #
 例如:
 ```
 public function getParams()
