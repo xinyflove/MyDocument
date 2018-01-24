@@ -1,5 +1,7 @@
 # 商派系统(shopex)常用文档
 
+## [app开发](/shopex/create_app.md, 'app开发')
+
 ## 创建一个对象
 
 ```
