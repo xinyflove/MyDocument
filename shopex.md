@@ -2,6 +2,24 @@
 
 ## [app开发](/shopex/create_app.md, 'app开发')
 
+## [数据动态扩展(dbeav app)model函数](/shopex/dbeav_model.md, '数据动态扩展(dbeav app)model函数')
+
+## [API开发](/shopex/api.md, 'API开发')
+
+## [config配置文件](/shopex/config.md, 'config配置文件')
+
+## [定时任务](/shopex/crontab.md, '定时任务')
+
+## [数据表定义](/shopex/dbschema.md, '数据表定义')
+
+## [finder](/shopex/finder.md, 'finder')
+
+## [](/shopex/model.md, '')
+
+## [签名算法](/shopex/sign.md, '签名算法')
+
+## [视图相关的类和函数](/shopex/view_class_function.md, '视图相关的类和函数')
+
 ## 创建一个对象
 
 ```
