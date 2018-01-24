@@ -2,6 +2,8 @@
 
 ## [app开发](/shopex/create_app.md, 'app开发')
 
+## [app类](/shopex/app_class.md, 'app类')
+
 ## [数据动态扩展(dbeav app)model函数](/shopex/dbeav_model.md, '数据动态扩展(dbeav app)model函数')
 
 ## [API开发](/shopex/api.md, 'API开发')
