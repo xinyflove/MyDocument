@@ -142,6 +142,18 @@ $qb->select('u.id', 'u.name', 'p.number')
 
 join()方法的用法说明，innerJoin(),leftJoin()和rightJoin()是相同的，join()是一个innerjoin()速记语法。
 
+```
+$res = $qb->select($row)
+		  ->from('sysitem_item', 'SI')
+		  ->leftJoin('SI', 'sysitem_item_count', 'SIC', 'SI.item_id=SIC.item_id')
+		  ->leftJoin('SIC', 'sysitem_item_status', 'SIS', 'SIC.item_id=SIS.item_id')
+		  ->leftJoin('SIS', 'sysitem_item_store', 'SISS', 'SIS.item_id=SISS.item_id')
+		  ->where($where)
+		  ->setFirstResult( $offset )
+		  ->setMaxResults($limit)
+		  ->orderBy($orderBy['by'], $orderBy['sort'])->execute()->fetchAll();//或者 fetch()
+```
+
 #### 2.2.7 Order-By
 
 orderBy($sort, $order = null)方法添加order BY子句的表达。注意：可选$order参数是不安全的用户输入和接受SQL表达式。
