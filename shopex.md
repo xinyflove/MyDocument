@@ -4,6 +4,8 @@
 
 ## [app类](/shopex/app_class.md, 'app类')
 
+## [db数据库操作](/shopex/db.md, 'db数据库操作')
+
 ## [数据动态扩展(dbeav app)model函数](/shopex/dbeav_model.md, '数据动态扩展(dbeav app)model函数')
 
 ## [API开发](/shopex/api.md, 'API开发')
@@ -90,63 +92,6 @@ $gravatar = new notebook_data_gravatar;
 | >=              | ```$tmpfilter['user_age\|bthan']='18'```                | user_age >= '18'   |
 | <=              | ```$tmpfilter['user_age\|sthan']='18'```                | user_age <= '18'   |
 | BETWEEN         | ```$tmpfilter['user_age\|between']=array(18,20)```       | user_age BETWEEN 18 AND 20 (未验证)  |
-
-### 生成器查询：
-
-```
-$builder = app::get('base')->database()->createQueryBuilder();
-$res = $builder->select($row)
-		  ->from('sysitem_item', 'SI')
-		  ->leftJoin('SI', 'sysitem_item_count', 'SIC', 'SI.item_id=SIC.item_id')
-		  ->leftJoin('SIC', 'sysitem_item_status', 'SIS', 'SIC.item_id=SIS.item_id')
-		  ->leftJoin('SIS', 'sysitem_item_store', 'SISS', 'SIS.item_id=SISS.item_id')
-		  ->where($where)
-		  ->setFirstResult( $offset )
-		  ->setMaxResults($limit)
-		  ->orderBy($orderBy['by'], $orderBy['sort'])->execute()->fetchAll();//或者 fetch()
-```
-
-### 生成器匹配参数查询
-
-```
-$trend = app::get('statistic')->model('trend');
-$db = app::get('statistic')->database();
-$queryBuider = $db->createQueryBuilder();
-$builder = $queryBuider->select('sum(pv_count) as pv_count','sum(visitor_count) as visitor_count')
-	->from($trend->table_name(true))
-	->where('timesig >= :start_time')->andWhere('timesig <= :end_time')->andWhere('shop_id = :shop_id')
-	->setParameters([
-		'start_time'=>$start_time,
-		'end_time'=>$end_time,
-		'shop_id'=>$shop_id,
-	]);
-$data = $builder->execute()->fetch();//或者 fetchAll()
-```
-
-### 生成器更新
-
-```
-$builder = app::get('base')->database()->createQueryBuilder();
-$res = $builder->set('rate_count', 'rate_count + 1')
-->set('field', $value)
-->where($where)
-->execute();
-```
-
-### 执行查询 sql：
-
-```
-$db = app::get('systrade')->database();//'systrade'当前app名称
-$result=$db->executeQuery($sql)->fetchAll();//获取多行数据
-$result=$db->executeQuery($sql)->fetch();//获取一行数据
-```
-
-### 执行更新、添加、删除 sql：
-
-```
-$db = app::get('systrade')->database();//'systrade'当前app名称
-$result=$db->executeUpdate($sql)
-```
 
 ### 获取app的model
 
