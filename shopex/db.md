@@ -94,3 +94,181 @@ $res = $qb->delete('sysstore_store')
             ->setParameters(['store_id'=>'8'])
             ->execute();
 ```
+
+#### 2.2.3 WHERE 子句
+
+SELECT、UPDATE和DELETE查询类型允许使用以下API:where子句
+
+```
+$qb->select('id', 'name')
+    ->from('users')
+    ->where('email = ?');
+```
+
+调用where()覆盖前面的条件子句，你可以防止这样通过表达式结合引入andWhere()和 orWhere()方法，或者可以使用表达式来生成where子句
+
+#### 2.2.4 表别名
+
+from()方法 接受一个可选的第二个参数指定一个表别名。
+
+```
+$qb->select('u.id', 'u.name')
+    ->from('users', 'u')
+    ->where('u.email = ?');
+```
+
+#### 2.2.5 GROUP BY 和 HAVING
+
+SELECT语句可以指定GROUP BY子句和 HAVING 子句，使用 having()的效果和使用 where()一样，有一致的的andhaving()和orhaving()方法来结合谓词，对于GROUP BY，你可以使用groupBy()方法,取代之前的表达式或使用addGroupBy()来添加:
+
+```
+$qb->select('DATE(last_login) as date', 'COUNT(id) AS users')
+    ->from('users')
+    ->groupBy('DATE(last_login)')
+    ->having('users > 10');
+```
+
+#### 2.2.6 加入条件
+
+对于SELECT子句可以产生不同类型的连接:INNER, LEFT and RIGHT，正确的连接是不跨所有平台移植(例如Sqlite不支持)。
+
+联接总是属于from子句的一部分。这就是为什么你必须指定别名的联接部分属于作为第一个参数。第二个和第三个参数你可以指定名称和连接表的别名,第四个参数包含在ON条款。
+
+```
+$qb->select('u.id', 'u.name', 'p.number')
+    ->from('users', 'u')
+    ->innerJoin('u', 'phonenumbers', 'p', 'u.id = p.user_id');
+```
+
+join()方法的用法说明，innerJoin(),leftJoin()和rightJoin()是相同的，join()是一个innerjoin()速记语法。
+
+#### 2.2.7 Order-By
+
+orderBy($sort, $order = null)方法添加order BY子句的表达。注意：可选$order参数是不安全的用户输入和接受SQL表达式。
+
+```
+$qb->select('id', 'name')
+    ->from('users')
+    ->orderBy('username', 'ASC')
+    ->addOrderBy('last_login', 'ASC NULLS FIRST');
+```
+
+使用addOrderBy方法添加,而不是取代orderBy条款。
+
+#### 2.2.8 限制条款
+
+只有几个数据库厂商的限制条款从MySQL已知,但我们支持此功能对所有供应商使用工作区。使用这个功能,你必须调用方法setFirstResult($offset)设置偏移量和setMaxResults($limit)设置限制返回的结果。
+
+```
+$qb->select('id', 'name')
+    ->from('users')
+    ->setFirstResult(10)
+    ->setMaxResults(20);
+```
+
+#### 2.2.9 VALUES
+
+INSERT条款设置列的值而插入的值可以用values()方法查询构建器:
+
+```
+$qb->insert('users')
+    ->values(
+        array(
+            'name' => '?',
+            'password' => '?'
+        )
+    )
+    ->createPositionalParameter(0, $username)
+    ->createPositionalParameter(1, $password);
+```
+
+每个后续的调用 values()覆盖任何先前的设置值。设置单个值,而不是一次设置全部用setValue()方法也是可能的:
+
+```
+$qb->insert('users')
+    ->setValue('name', '?')
+    ->setValue('password', '?')
+    ->createPositionalParameter(0, $username)
+    ->createPositionalParameter(1, $password);
+
+// INSERT INTO users (name, password) VALUES (?, ?)
+```
+
+当然你也可以使用这两种方法结合在一起:
+
+```
+$qb->insert('users')
+    ->values(
+        array(
+            'name' => '?'
+        )
+    )
+    ->createPositionalParameter(0, $username);
+
+// INSERT INTO users (name) VALUES (?)
+
+if ($password) {
+    $qb->setValue('password', '?')
+        ->createPositionalParameter(1, $password) ;
+
+    // INSERT INTO users (name, password) VALUES (?, ?)
+}
+```
+
+没有设置任何值，将导致空插入语句：
+
+```
+$qb->insert('users');
+
+// INSERT INTO users () VALUES ()
+```
+
+#### 2.2.10 设置条款
+
+为更新的条款列设置为新值是必要的,可以用一组set()方法查询生成器。请注意,第二个参数允许用户输入的表达式，它是不安全的用户输入:
+
+```
+$qb->update('users', 'u')
+    ->set('u.logins', 'u.logins + 1')
+    ->set('u.last_login', '?')
+    ->createPositionalParameter(0, $userInputLastLogin);
+```
+
+#### 2.2.11 构建表达式
+
+对于更复杂的WHERE, HAVING或其他条款可以使用表达式构建这些查询部分。您可以借助表达式API，通过调用$qb -> expr(),然后调用辅助方法。
+
+最值得注意的是您可以使用表达式来建立嵌套 And-/Or语句:
+
+```
+$qb->select('id', 'name')
+    ->from('users')
+    ->where(
+            $qb->expr()->andX(
+            $qb->expr()->eq('username', '?'),
+            $qb->expr()->eq('email', '?')
+        )
+    );
+```
+
+andX()和orX()方法接受一个任意数量的参数,可以相互嵌套。
+
+这有一些方法来创建的比较和其他SQL表达式对象上的片段,你可以在API文档上看到。
+
+#### 2.2.12 绑定参数占位符
+
+通常在构建一个查询的时候没有必要知道的确切占位符的名字。您可以使用两个助手方法来将一个值绑定到一个占位符和直接使用查询的返回值的占位符:
+
+```
+$qb->select('id', 'name')
+    ->from('users')
+    ->where('email = ' .  $qb->createNamedParameter($userInputEmail));
+
+// SELECT id, name FROM users WHERE email = :dcValue1
+
+$qb->select('id', 'name')
+    ->from('users')
+    ->where('email = ' . $qb->createPositionalParameter($userInputEmail));
+
+// SELECT id, name FROM users WHERE email = ?
+```
