@@ -6,7 +6,7 @@
 
 ## 3.[db数据库操作](/shopex/db.md 'db数据库操作')
 
-## 4.数据动态扩展(dbeav app)model函数](/shopex/dbeav_model.md '数据动态扩展(dbeav app)model函数')
+## 4.[数据动态扩展(dbeav app)model函数](/shopex/dbeav_model.md '数据动态扩展(dbeav app)model函数')
 
 ## 5.[API开发](/shopex/api.md 'API开发')
 
