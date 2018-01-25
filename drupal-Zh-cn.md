@@ -1,4 +1,4 @@
-##Drupal翻译
+# Drupal翻译
 
 [Dashboard         控制面板]
 [Content           内容管理]
