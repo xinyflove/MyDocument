@@ -26,15 +26,8 @@
 
 ## 13.[创建一个对象](/shopex/create_obj.md '创建一个对象')
 
+## 14.[类的自动载入机制](/shopex/class_auto_load.md '类的自动载入机制')
 
-
-## 类的自动载入机制
-```
-$gravatar = new notebook_gravatar;
-//生成的是目录为notebook/lib/gravatar.php 里的class为notebook_gravatar的对象
-$gravatar = new notebook_data_gravatar;
-//生成的是目录为notebook/lib/data/gravatar.php 里的class为notebook_data_gravatar的对象
-```
 
 ## 函数
 
