@@ -2,7 +2,7 @@
 
 ## [app开发](/shopex/create_app.md 'app开发')
 
-## [app类 (app::get('app_name'))](/shopex/app_class.md 'app类 (app::get('app_name'))')
+## [app类 (app::get)](/shopex/app_class.md 'app类 (app::get)')
 
 ## [db数据库操作](/shopex/db.md 'db数据库操作')
 
