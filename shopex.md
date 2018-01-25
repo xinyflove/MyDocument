@@ -18,8 +18,6 @@
 
 ## [finder](/shopex/finder.md 'finder')
 
-## [](/shopex/model.md '')
-
 ## [签名算法](/shopex/sign.md '签名算法')
 
 ## [视图相关的类和函数](/shopex/view_class_function.md '视图相关的类和函数')
