@@ -1,28 +1,28 @@
 # 商派系统(shopex)常用文档
 
-## [app开发](/shopex/create_app.md, 'app开发')
+## [app开发](/shopex/create_app.md 'app开发')
 
-## [app类](/shopex/app_class.md, 'app类')
+## [app类 (app::get('app_name'))](/shopex/app_class.md 'app类 (app::get('app_name'))')
 
-## [db数据库操作](/shopex/db.md, 'db数据库操作')
+## [db数据库操作](/shopex/db.md 'db数据库操作')
 
-## [数据动态扩展(dbeav app)model函数](/shopex/dbeav_model.md, '数据动态扩展(dbeav app)model函数')
+## [数据动态扩展(dbeav app)model函数](/shopex/dbeav_model.md '数据动态扩展(dbeav app)model函数')
 
-## [API开发](/shopex/api.md, 'API开发')
+## [API开发](/shopex/api.md 'API开发')
 
-## [config配置文件](/shopex/config.md, 'config配置文件')
+## [config配置文件](/shopex/config.md 'config配置文件')
 
-## [定时任务](/shopex/crontab.md, '定时任务')
+## [定时任务](/shopex/crontab.md '定时任务')
 
-## [数据表定义](/shopex/dbschema.md, '数据表定义')
+## [数据表定义](/shopex/dbschema.md '数据表定义')
 
-## [finder](/shopex/finder.md, 'finder')
+## [finder](/shopex/finder.md 'finder')
 
-## [](/shopex/model.md, '')
+## [](/shopex/model.md '')
 
-## [签名算法](/shopex/sign.md, '签名算法')
+## [签名算法](/shopex/sign.md '签名算法')
 
-## [视图相关的类和函数](/shopex/view_class_function.md, '视图相关的类和函数')
+## [视图相关的类和函数](/shopex/view_class_function.md '视图相关的类和函数')
 
 ## 创建一个对象
 
