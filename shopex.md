@@ -28,11 +28,6 @@
 
 ## 14.[类的自动载入机制](/shopex/class_auto_load.md '类的自动载入机制')
 
+## 15.[常用函数](/shopex/common_function.md '常用函数')
 
-## 函数
 
-### 全局函数：
-
-| 函数 | 说明          |
-| ------------- |:-------------|
-| request::method() == 'GET'         | 获取请求方式(GET或POST)          |
