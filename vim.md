@@ -11,3 +11,4 @@ vim命令
 | u 	        | 回撤      |
 | ctrl + r      | 撤销回撤      |
 | :n            | :2 定位到第二行      |
+| set number 或者 set num            | 显示行号      |
