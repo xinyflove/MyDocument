@@ -1,5 +1,7 @@
 # 商派系统(shopex)常用文档
 
+参考文档http://club.shopex.cn/doc/
+
 ## 1.[app开发](/shopex/create_app.md 'app开发')
 
 ## 2.[app类 (app::get)](/shopex/app_class.md 'app类 (app::get)')
