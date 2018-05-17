@@ -27,3 +27,24 @@
 | 动态验证数据链接2       | ```data-remote="<{url action=topc_ctl_passport@checkLoginAccount}>"```      |
 | 自动聚焦                | ```autofocus```      |
 
+## 前端图片处理：
+
+例子:
+```
+<img src="<{$imgurl|storager:'t'}>" alt="">
+```
+前端页面显示图片的时候用函数storager处理一下  
+*tip:函数位置:app/base/lib/view/helper.php modifier_storager($image_id,$size='')*  
+
+参数信息:
+1.$imgurl 图片路径为相对路径  
+2.storager函数参数:  
+`l`:大图  `m`:中图 `s`:小图 `t`:微图  
+
+在php文件处理图片函数为base_storager::modifier($image_id,$size)
+*tip:函数位置:app\base\lib\storager.php modifier($imageUrl,$size='')*
+参数信息:
+1.$image_id 图片路径为相对路径  
+2.$size `l`:大图  `m`:中图 `s`:小图 `t`:微图  
+
+
