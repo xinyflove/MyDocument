@@ -30,4 +30,4 @@
 
 ## 15.[常用函数](/shopex/common_function.md '常用函数')
 
-
+## 16.[屏蔽需要登录shopexID步骤](/shopex/shopex_id.md '屏蔽需要登录shopexID步骤')
