@@ -35,11 +35,9 @@
 ```
 前端页面显示图片的时候用函数storager处理一下  
 *tip:函数位置:app/base/lib/view/helper.php modifier_storager($image_id,$size='')*  
-
-参数信息:
-1.$imgurl 图片路径为相对路径  
-2.storager函数参数:  
-`l`:大图  `m`:中图 `s`:小图 `t`:微图  
+参数信息:  
+1.$imgurl 图片路径为相对路径  
+2.storager函数参数: `l`:大图  `m`:中图 `s`:小图 `t`:微图    
 
 在php文件处理图片函数为base_storager::modifier($image_id,$size)  
 *tip:函数位置:app\base\lib\storager.php modifier($imageUrl,$size='')*  
