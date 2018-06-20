@@ -17,6 +17,12 @@ function index(){
                    'label'=>app::get('b2c')->_('添加商品'),
                    'href'=>'index.php?app=b2c&ctl=admin_goods_editor&act=add','target'=>'_blank'
                ),
+               array(
+                   'label'=>app::get('b2c')->_('删除'),
+                   'icon' => 'download.gif',
+                   'submit' => '?app=b2c&ctl=admin_goods_editor&act=doDelete',
+                   'confirm' => app::get('b2c')->_('您在进行商品删除操作，平台方应承担此操作的风险后果，确定要删除选中商品？'),
+               ),
            ),
            'use_buildin_set_tag'=>true,//默认false
            'use_buildin_delete'=>true,//默认true
