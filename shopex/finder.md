@@ -4,6 +4,7 @@
 finder区图片:
 ![](./images/finder_detail.png)
 
+## 一. finder方法 
 举例：
 ```
 function index(){
@@ -45,28 +46,69 @@ function index(){
 2.第二个参数是数组，这个数组内涵相当丰富，解释如下：
 
 ```
-title: 图中的【1区】显示出来的内容
+title: 标题(图中的【1区】显示出来的内容)
 
-actions: 图中的【2区】里的内容除了显示内置的操作以外(use_buildin_set_tag,use_buildin_delete,use_buildin_export, 
-use_buildin_import,use_buildin_filter这些是内置控制项)，还可以自定义添加新操作，参照上面格式。
+actions: 自定义控制项(图中的【2区】里的内容除了显示内置的操作以外[use_buildin_set_tag,use_buildin_delete,use_buildin_export, 
+use_buildin_import,use_buildin_filter等等这些是内置控制项]，还可以自定义添加新操作，参照上面格式。)
 
-use_buildin_set_tag: 是否显示设置标签操作
+# 以下是内置控制项 
 
-use_buildin_delete: 是否显示删除操作
+use_buildin_set_tag: 是否显示设置标签操作(值ture/false) 
+use_buildin_tagedit: 是否显示标签管理操作(值ture/false)(暂未看出效果)
 
-use_buildin_export: 是否显示导出操作
+use_buildin_delete: 是否显示删除操作(值ture/false)
 
-use_buildin_import: 是否显示导入操作
+use_buildin_export: 是否显示导出操作(值ture/false)
 
-use_buildin_tagedit: 是否显示标签管理操作(暂未看出效果)
+use_buildin_import: 是否显示导入操作(值ture/false)
 
-base_filter： 对列表数据进行过滤筛选，参照上面格式
+base_filter： 对列表数据进行过滤筛选，参照上面格式(值 数组)
 
 top_extra_view 在finder列表头部增加其他自定义html显示,如top_extra_view=>array('app名称'=>'html模版页面路径');
-use_view_tab: 是否显示finder中的tab（如果有），有无需看控制器中是否有_views方法。(暂未看出效果)
+use_view_tab: 是否显示finder中的tab（如果有），有无需看控制器中是否有_views方法,例如代码1-1。
 use_buildin_filter: 是否使用高级筛选 图中【6区】
 use_buildin_refresh: 是否显示刷新操作(列表配置项旁)
 use_buildin_setcol: 是否显示列表配置项
 use_buildin_selectrow: 是否显示每条记录前的复选按钮
 allow_detail_popup: 是否显示查看列中的弹出查看图标（图 【4区】第二个图标）(暂未看出效果)
+```
+
+```
+# 代码1-1
+/**
+* 列表tab
+* @return array
+*/
+public function _views()
+{
+  $subMenu = array(
+      0=>array(
+          'label'=>app::get('sysmall')->_('待审核'),
+          'optional'=>false,
+          'filter'=>array(
+              'status'=>'pending',
+          ),
+      ),
+      1=>array(
+          'label'=>app::get('sysmall')->_('审核通过'),
+          'optional'=>false,
+          'filter'=>array(
+              'status'=>'onsale',
+          ),
+
+      ),
+      2=>array(
+          'label'=>app::get('sysmall')->_('审核驳回'),
+          'optional'=>false,
+          'filter'=>array(
+              'status'=>'refuse',
+          ),
+      ),
+      3=>array(
+          'label'=>app::get('sysmall')->_('全部'),
+          'optional'=>false,
+      ),
+  );
+  return $subMenu;
+}
 ```
