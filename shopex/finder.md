@@ -47,7 +47,8 @@ function index(){
 ```
 title: 图中的【1区】显示出来的内容
 
-actions: 图中的【2区】里的内容除了显示内置的操作以外(use_buildin_set_tag,use_buildin_delete,use_buildin_export,use_buildin_import,use_buildin_filter这些是内置控制项)，还可以自定义添加新操作，参照上面格式。
+actions: 图中的【2区】里的内容除了显示内置的操作以外(use_buildin_set_tag,use_buildin_delete,use_buildin_export, 
+use_buildin_import,use_buildin_filter这些是内置控制项)，还可以自定义添加新操作，参照上面格式。
 
 use_buildin_set_tag: 是否显示设置标签操作
 
