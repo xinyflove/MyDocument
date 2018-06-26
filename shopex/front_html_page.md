@@ -45,4 +45,24 @@
 1.$image_id 图片路径为相对路径  
 2.$size `l`:大图  `m`:中图 `s`:小图 `t`:微图  
 
+## 流程控制函数
 
+函数文件路径 app/base/lib/view/compilers/tramsy.php  
+
+常见的比如:  
+```
+# 引入模版
+<{include file="topwap/empty/activity_scratchcard.html" }>
+# if判断
+<{if 判断条件}>
+  ···
+<{elseif 判断条件}>
+  ···
+<{else}>
+  ···
+<{/if}>
+# foreach循环
+<{foreach from=$list item=data key=key}>
+  <{$key}> <{$data.title}>
+<{/foreach}>
+```
