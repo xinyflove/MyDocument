@@ -43,8 +43,8 @@ $row = $db->executeUpdate($sql);
 
 就是调用了`Doctrine\DBAL\Query`中的QueryBuilder类
 
-$conn = db::connection();  
-$qb = $conn->createQueryBuilder();
+$db = app::get('base')->database();  
+$qb = $db->createQueryBuilder();
 
 ### 2.1 安全：安全防范SQL注入
 
@@ -283,4 +283,35 @@ $qb->select('id', 'name')
     ->where('email = ' . $qb->createPositionalParameter($userInputEmail));
 
 // SELECT id, name FROM users WHERE email = ?
+```
+
+## 3. 事务操作
+
+```
+$db = app::get('sysshop')->database();
+$db->beginTransaction();//开启事务
+$db->commit();//提交
+$db->rollback();//回滚
+```
+
+例子:
+```
+$db = app::get('sysshop')->database();
+$db->beginTransaction();
+try
+{
+    $result = $this->objMdlEnterapply->save($postdata);
+    if(!$result)
+    {
+	throw new \LogicException('申请提交失败');
+    }
+    $db->commit();
+    return true;
+}
+catch(\LogicException $e)
+{
+    $db->rollback();
+    throw new \LogicException($e->getMessage());
+    return false;
+}
 ```
