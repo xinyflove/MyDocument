@@ -12,7 +12,9 @@
 
 ## 1. 获取数据库操作对象
 
-`$db = app::get('base')->database();`或者`$db = app::get('当前app名称')->database();`
+`$db = app::get('base')->database();`  
+或者  
+`$db = app::get('当前app名称')->database();`
 
 ## 1.1 根据sql语句操作
 
