@@ -10,4 +10,4 @@
 
 6.[Drupal翻译](/drupal-Zh-cn.md 'Drupal翻译')  
 
-6.[markdown基本语法](/markdown.md 'markdown基本语法')  
+7.[markdown基本语法](/markdown.md 'markdown基本语法')  
