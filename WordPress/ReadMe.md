@@ -4,3 +4,7 @@
 
 ## 1. [入口文件index.php](/WordPress/index.md)  
 
+加载WordPress环境和模板  
+
+## 2. [wp-blog-header.php](/WordPress/wp-blog-header.md)  
+
