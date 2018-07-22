@@ -1,4 +1,6 @@
-# markdown基本语法
+# markdown基本语法  
+
+> 提示:可能有些语法显示的不明显！
 
 ## 目录  
 
@@ -73,7 +75,17 @@
 使用`font`标签，
 
 ```
+<font face="微软雅黑">我是微软雅黑</font> //设置字体类型 
+<font color="#ff0000">我是红色</font>  //设置字体颜色
+<font size="72px">我的大小为72px</font>  //设置字体大小
+```
 
+示例:  
+
+```
+<font face="微软雅黑">我是微软雅黑</font>  
+<font color="#ff0000">我是红色</font>  
+<font size="72px">我的大小为72px</font>  
 ```
 
 效果如下:  
