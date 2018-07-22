@@ -78,9 +78,9 @@
 
 效果如下:  
 
-<font face="微软雅黑">我是微软雅黑</font>
-<font color="#ff0000">我是红色</font>
-<font size="72px">我的大小为72px</font>
+<font face="微软雅黑">我是微软雅黑</font>  
+<font color="#ff0000">我是红色</font>  
+<font size="72px">我的大小为72px</font>  
 
 ## 三、引用  
 
