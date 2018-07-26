@@ -34,4 +34,7 @@
 
 ## 16.[屏蔽需要登录shopexID步骤](/shopex/shopex_id.md '屏蔽需要登录shopexID步骤')  
 
-## 17.[定界符函数](/shopex/delimiter_func.md '定界符函数')
+## 17.[定界符函数](/shopex/delimiter_func.md '定界符函数')  
+
+## 18.[主题挂件开发](/shopex/theme_widget.md '主题挂件开发')  
+
