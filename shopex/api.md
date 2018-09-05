@@ -266,8 +266,8 @@ public function getParams()
 
 | 参数的参数定义 | 说明          | 可选值 |
 | ------------- |:-------------|:-------------|
-| type          | 参数类型(单个)     | int(整数)\| <br> string(字符串)\| <br> field_list(字段列表)\| <br> bool(布尔类型)\| <br> jsonArray(JSON数组)    |
-| valid         | 验证条件(多个可用\|连接)     | required(必填)\| <br> integer(整数类型或者用int)\| <br> max:n(最大值，例如：max:20最大值20)\| <br> min:n(最小值，例如：min:1最小值1)\| <br> 空字符串(没有验证)\| <br> sometimes(未知含义)\| <br> boolean(布尔类型)\| <br> in:\*\*(限定值，例如：in:agree,refuse,non-reviewed,pending 取值范围在agree、refuse、non-reviewed、pending)\| <br> required_if:\*\*(未知含义 例如：required_if:status,refuse) \| <br> numeric(未知含义)\| <br>  |
+| type          | 参数类型(单个)     | int(整数)\| <br> string(字符串)\| <br> field_list(字段列表)\| <br> bool(布尔类型)\| <br> jsonArray(JSON数组)\| <br> json、array、money、float、number、date、time、numeric、fields_list、price、field、binary、integer   |
+| valid         | 验证条件(多个可用\|连接)     | required(必填)\| <br> integer(整数类型或者用int)\| <br> max:n(最大值，例如：max:20最大值20)\| <br> min:n(最小值，例如：min:1最小值1)\| <br> 空字符串(没有验证)\| <br> sometimes(未知含义)\| <br> boolean(布尔类型)\| <br> in:\*\*(限定值，例如：in:agree,refuse,non-reviewed,pending 取值范围在agree、refuse、non-reviewed、pending)\| <br> required_if:\*\*(未知含义 例如：required_if:status,refuse) \| <br> numeric(未知含义)\| <br>  参考config/validation.php|
 | default       | 默认值              |           |
 | example       | 示例值              |           |
 | desc          | 描述(或者用description)          |           |
