@@ -1,6 +1,9 @@
 # 商派系统(shopex)常用文档
 
-参考文档http://club.shopex.cn/doc/
+tip:此文档以后不在维护
+
+- 持续更新开发文档地址：[https://shopex.xinyufeng.net/](https://shopex.xinyufeng.net/)
+- 商派官方开发文档网址：[http://club.shopex.cn/doc/](http://club.shopex.cn/doc/)
 
 ## 1.[app开发](/shopex/create_app.md 'app开发')
 
@@ -37,5 +40,3 @@
 ## 17.[定界符函数](/shopex/delimiter_func.md '定界符函数')  
 
 ## 18.[主题挂件开发](/shopex/theme_widget.md '主题挂件开发')  
-
-此文档以后不在维护
